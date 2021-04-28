@@ -7,7 +7,7 @@ assignees: ''
 
 ---
 
-## Position : 
+## Position : 프론트엔드
 
 ## 이름 : 
 
@@ -15,4 +15,6 @@ assignees: ''
 
 ## TODO : 
 
-### 비고사항 :
+#### 필수사항 : 
+
+#### 비고사항 :
