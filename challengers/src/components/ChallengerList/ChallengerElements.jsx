@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { AiOutlineLike } from "react-icons/ai";
 
 export const ChallengersListContainer = styled.div `
   display: flex;
@@ -66,14 +67,44 @@ export const ChallengerListCardGroup = styled.div `
 `;
 
 export const ChallengerCard = styled.div `
-  border: 1px solid #000;
-  box-shadow: inset 0 0 10px red, 0 0 10px blue;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 0 10px #fa8072;
   width: 200px;
   height: 100%;
   margin: 10px;
+
+  &:hover {
+    box-shadow: 0 0 10px rgba(233, 228, 206);
+    transform: translateY(10px);
+  }
+
+  &:active {
+    transform: translateY(-10px);
+  }
 
   @media screen and (max-width: 768px) {
     width: 50vw;
     height: 10vh;
   }
+`;
+
+export const ChallengerName = styled.h2 `
+  padding: 10px;
+  font-family: "Cinzel", serif;
+  font-style: italic;
+  color: brown;
+  overflow: hidden;
+  font-size: 1.7rem;
+`;
+
+export const LikeIcon = styled(AiOutlineLike)
+`
+  border-radius: 50px;
+  border: 2px solid brown;
+  color: #000;
+  overflow: hidden;
+  font-size: 2rem;
+  cursor: pointer;
 `;
