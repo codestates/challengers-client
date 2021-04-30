@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import { Link } from 'react-router-dom';
 // import styled from 'styled-components';
-import ButtonSignbox from './ButtonSignbox.js'
+import ButtonSignbox from './ButtonSignbox'
 
 class signup extends Component {
     constructor(props) {
