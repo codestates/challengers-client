@@ -8,7 +8,9 @@ import {
   ChallengeWrapper,
   ChallengeListTitle,
   ChallengeListCardGroup,
-  ChallengeCard
+  ChallengeCard,
+  ChallengeTag,
+  ChallengeHashTag
 } from "./ChallengeListElements";
 
 const ChallengeList = () => {
@@ -20,10 +22,22 @@ const ChallengeList = () => {
       <ChallengeWrapper>
         <ChallengeListTitle>Challenge List</ChallengeListTitle>
         <ChallengeListCardGroup>
-          <ChallengeCard>hey</ChallengeCard>
-          <ChallengeCard>hey</ChallengeCard>
-          <ChallengeCard>hey</ChallengeCard>
-          <ChallengeCard>hey</ChallengeCard>
+          <ChallengeCard>
+            <ChallengeTag>CHALLENGE TAG</ChallengeTag>
+            <ChallengeHashTag># CHALLENGE!</ChallengeHashTag>
+          </ChallengeCard>
+          <ChallengeCard>
+            <ChallengeTag>CHALLENGE TAG</ChallengeTag>
+            <ChallengeHashTag># CHALLENGE!</ChallengeHashTag>
+          </ChallengeCard>
+          <ChallengeCard>
+            <ChallengeTag>CHALLENGE TAG</ChallengeTag>
+            <ChallengeHashTag># CHALLENGE!</ChallengeHashTag>
+          </ChallengeCard>
+          <ChallengeCard>
+            <ChallengeTag>CHALLENGE TAG</ChallengeTag>
+            <ChallengeHashTag># CHALLENGE!</ChallengeHashTag>
+          </ChallengeCard>
         </ChallengeListCardGroup>
       </ChallengeWrapper>
     </ChallengeListContainer>

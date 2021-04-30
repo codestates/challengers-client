@@ -7,7 +7,9 @@ import {
   ChallengerWrapper,
   ChallengerListTitle,
   ChallengerListCardGroup,
-  ChallengerCard
+  ChallengerCard,
+  ChallengerName,
+  LikeIcon
 } from "./ChallengerElements";
 
 const ChallengerList = () => {
@@ -16,10 +18,22 @@ const ChallengerList = () => {
       <ChallengerWrapper>
         <ChallengerListTitle>Hall of fame</ChallengerListTitle>
         <ChallengerListCardGroup>
-          <ChallengerCard>hey</ChallengerCard>
-          <ChallengerCard>hey</ChallengerCard>
-          <ChallengerCard>hey</ChallengerCard>
-          <ChallengerCard>hey</ChallengerCard>
+          <ChallengerCard>
+            <ChallengerName>Lee</ChallengerName>
+            <LikeIcon />
+          </ChallengerCard>
+          <ChallengerCard>
+            <ChallengerName>Lee</ChallengerName>
+            <LikeIcon />
+          </ChallengerCard>
+          <ChallengerCard>
+            <ChallengerName>Lee</ChallengerName>
+            <LikeIcon />
+          </ChallengerCard>
+          <ChallengerCard>
+            <ChallengerName>Lee</ChallengerName>
+            <LikeIcon />
+          </ChallengerCard>
         </ChallengerListCardGroup>
       </ChallengerWrapper>
       <ChallengerImg>
