@@ -30,7 +30,7 @@ export const VideoPlay = styled.video `
   right: 0;
   left: 0;
   bottom: 0;
-  width: 99.1vw;
+  width: 100%;
   height: 100%;
   -o-object-fit: cover;
   object-fit: cover;

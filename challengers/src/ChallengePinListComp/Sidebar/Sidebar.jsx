@@ -48,7 +48,7 @@ const Sidebar = ({ toggle, isRight }) => {
                 <SidebarLowerLink4 to="/challenge" onClick={toggle}>
                   Make New Challenge
                 </SidebarLowerLink4>
-                <SidebarLowerLink5 to="/Follower" onClick={toggle}>
+                <SidebarLowerLink5 to="/following" onClick={toggle}>
                   Follower
                 </SidebarLowerLink5>
               </SidebarLowerMenu>

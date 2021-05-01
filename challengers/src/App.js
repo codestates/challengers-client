@@ -9,6 +9,7 @@ import Signup from "./components/Signup/Signup";
 import MyChallenges from "./pages/MyChallenges";
 import ChangeInfo from "./pages/ChangeInfo";
 import MakeNewChallenges from "./pages/MakeNewChallenges";
+import Follower from "./pages/Follower";
 
 // Home Component Routing !!!
 
@@ -24,6 +25,7 @@ function App() {
         <Route path="/my-challenges" component={MyChallenges} />
         <Route path="/change-info" component={ChangeInfo} />
         <Route path="/challenge" component={MakeNewChallenges} />
+        <Route path="/following" component={Follower} />
       </Switch>
     </Router>
   );
