@@ -1,24 +1,31 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
 // import styled from 'styled-components';
+import {
+    ButtonBox,
+    Login,
+    Backward,
+    LoginIcon,
+    BackIcon
+} from './ButtonboxElements';
 
-function Buttonbox(props) {
-    console.log(props)
+function Buttonbox({loginClick, backClick}) {
+    console.log("버튼", {loginClick}, {backClick})
     return (
-        <div className="button-box">
-            <button 
-                className="login"
+        <>
+        <ButtonBox>
+            <Login 
                 type="button"
-                onClick={props.loginClick}>
+                onClick={loginClick}>
             Login
-            </button>
-            <button 
-                className="backward"
+            </Login>
+            <Backward 
                 type="button"
-                onClick={props.backClick}>
+                onClick={backClick}>
             Back
-            </button>
-        </div>
+            </Backward>
+        </ButtonBox>
+        </>
     );
 }
 

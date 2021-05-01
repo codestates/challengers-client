@@ -1,24 +1,27 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
 // import styled from 'styled-components';
+import {
+    BtnboxDiv,
+    SignupBtn,
+    CancelBtn
+} from './ButtonsignboxElements';
 
 function ButtonSignbox(props) {
     console.log(props)
     return (
-        <div className="button-box">
-            <button 
-                className="sign"
+        <BtnboxDiv>
+            <SignupBtn
                 type="submit"
                 onClick={props.submitClick}>
             Submit
-            </button>
-            <button 
-                className="cancel"
+            </SignupBtn>
+            <CancelBtn 
                 type="button"
                 onClick={props.cancelClick}>
             Cancel
-            </button>
-        </div>
+            </CancelBtn>
+        </BtnboxDiv>
     );
 }
 

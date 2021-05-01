@@ -1,5 +1,19 @@
 import React, { useState } from "react";
 import ButtonSignbox from "./ButtonSignbox";
+import { 
+  SignupDiv,
+  SignupForm,
+  Title,
+  FormSignup,
+  UserId,
+  UseridInput,
+  Password,
+  UserpwInput,
+  CheckPassword,
+  CheckpwInput,
+  Email,
+  EmailInput
+} from "./SignupElements";
 
 const Signup = () => {
   const [userId, setUserId] = useState("");
@@ -9,22 +23,27 @@ const Signup = () => {
   const [emailChecked, setEmailChecked] = useState(false);
 
   const writeUserId = (e) => {
+    console.log("userID: ", e)
     e.preventDefault();
     setUserId(e.target.value);
   };
 
   const writePwd = (e) => {
+    console.log("pw: ", e)
     e.preventDefault();
     setPassword(e.target.value);
   };
 
   const writeSamepwd = (e) => {
+    console.log("checkpw: ", e)
     e.preventDefault();
     setCheckPwd(e.target.value);
   };
 
   const writeEmail = (e) => {
+    console.log("email: ", e)
     e.preventDefault();
+    setEmail(e.target.value);
 
     // if (e.target.value.includes("@")) {
     //   setEmail(e.target.value);
@@ -33,61 +52,61 @@ const Signup = () => {
     // }
   };
 
-  const submitClick = () => {};
+  const submitClick = () => {
+    console.log("제출")
+  };
 
-  const cancelClick = () => {};
+  const cancelClick = () => {
+    console.log("가입취소")
+  };
 
   return (
-    <div className="sign-up">
-      <div className="signup-form">
-        <h1> Sign Up </h1>
-        <form className="signup">
-          <div className="signup">
-            <input
+    <SignupDiv>
+      <SignupForm>
+        <Title>Sign Up</Title>
+        <FormSignup>
+          <UserId>
+            <UseridInput
               value={userId}
-              className="userid"
               type="text"
               placeholder="Userid"
               onChange={writeUserId}
             />
-          </div>
+          </UserId>
           <br />
-          <div className="Pwd">
-            <input
+          <Password>
+            <UserpwInput
               value={password}
-              className="Pwd"
               type="password"
               autoComplete="on"
               placeholder="Password"
               onChange={writePwd}
             />
-          </div>
+          </Password>
           <br />
-          <div className="checkPwd">
-            <input
+          <CheckPassword>
+            <CheckpwInput
               value={checkPwd}
-              className="checkPwd"
               type="password"
               autoComplete="on"
               placeholder="Check password"
               onChange={writeSamepwd}
             />
-          </div>
+          </CheckPassword>
           <br />
-          <div className="email">
-            <input
+          <Email>
+            <EmailInput
               value={email}
-              className="email"
               type="text"
               placeholder="E-mail"
               onChange={writeEmail}
             />
-          </div>
+          </Email>
           <br />
-        </form>
+        </FormSignup>
         <ButtonSignbox submitClick={submitClick} cancelClick={cancelClick} />
-      </div>
-    </div>
+      </SignupForm>
+    </SignupDiv>
   );
 };
 
