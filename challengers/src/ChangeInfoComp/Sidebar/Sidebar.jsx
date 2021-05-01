@@ -1,5 +1,4 @@
 import React from "react";
-
 import {
   SidebarContainer,
   Icon,
@@ -7,7 +6,8 @@ import {
   SidebarWrapper,
   SidebarMenu,
   SidebarUpperMenu,
-  SidebarUpperLink,
+  SidebarUpperLink1,
+  SidebarUpperLink2,
   SidebarLowerMenu,
   SidebarLowerLink1,
   SidebarLowerLink2,
@@ -27,9 +27,11 @@ const Sidebar = ({ toggle, isRight }) => {
         <SidebarMenu>
           {/* toggle 클릭 시 false에서 true로 바뀐 후 앞의 링크로 갈 수 있게 세팅. */}
           <SidebarUpperMenu>
-            <SidebarUpperLink to="/tag">Challenge List</SidebarUpperLink>
+            <SidebarUpperLink1 to="/tag" onClick={toggle}>
+              Challenge List
+            </SidebarUpperLink1>
 
-            <SidebarUpperLink to="/my-challenges" onClick={toggle}>
+            <SidebarUpperLink2 to="/my-challenges" onClick={toggle}>
               <SidebarPage>My Page</SidebarPage>
 
               {/* toggle 클릭 시 false에서 true로 바뀐 후 앞의 링크로 갈 수 있게 세팅. */}
@@ -50,7 +52,7 @@ const Sidebar = ({ toggle, isRight }) => {
                   Follower
                 </SidebarLowerLink5>
               </SidebarLowerMenu>
-            </SidebarUpperLink>
+            </SidebarUpperLink2>
           </SidebarUpperMenu>
         </SidebarMenu>
       </SidebarWrapper>

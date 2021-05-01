@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-export const SidebarContainer = styled.aside`
+export const SidebarContainer = styled.aside `
   position: fixed;
   align-items: center;
   background: #000;
@@ -17,7 +17,7 @@ export const SidebarContainer = styled.aside`
   transition: 0.5s ease-in-out;
 `;
 
-export const Icon = styled.div`
+export const Icon = styled.div `
   position: absolute;
   top: 1rem;
   right: 1rem;
@@ -25,19 +25,20 @@ export const Icon = styled.div`
   cursor: pointer;
 `;
 
-export const ShutIcon = styled(FaTimes)`
+export const ShutIcon = styled(FaTimes)
+`
   color: #fff;
 `;
 
-export const SidebarWrapper = styled.div`
+export const SidebarWrapper = styled.div `
   height: 100vh;
 `;
 
-export const SidebarMenu = styled.div`
+export const SidebarMenu = styled.div `
   height: 100vh;
 `;
 
-export const SidebarUpperMenu = styled.ul`
+export const SidebarUpperMenu = styled.ul `
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -45,7 +46,8 @@ export const SidebarUpperMenu = styled.ul`
   height: 100vh;
 `;
 
-export const SidebarUpperLink = styled(Link)`
+export const SidebarUpperLink1 = styled(Link)
+`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -69,18 +71,44 @@ export const SidebarUpperLink = styled(Link)`
   }
 `;
 
-export const SidebarPage = styled.div`
+export const SidebarUpperLink2 = styled(Link)
+`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s ease-in-out;
+  font-size: 3rem;
+  font-weight: 1000;
+  text-decoration: none;
+  color: rgba(252, 186, 127);
+  cursor: pointer;
+  padding: 15px;
+  font-family: "Cinzel", serif;
+
+  &:hover {
+    color: #01bf71;
+    transition: 0.1s ease-in-out;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 2.5rem;
+  }
+`;
+
+export const SidebarPage = styled.div `
   text-align: center;
 `;
 
-export const SidebarLowerMenu = styled.ul`
+export const SidebarLowerMenu = styled.ul `
   display: flex;
   flex-direction: column;
   font-family: "Cinzel", serif;
   text-align: center;
 `;
 
-export const SidebarLowerLink1 = styled(Link)`
+export const SidebarLowerLink1 = styled(Link)
+`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -102,7 +130,8 @@ export const SidebarLowerLink1 = styled(Link)`
   }
 `;
 
-export const SidebarLowerLink2 = styled(Link)`
+export const SidebarLowerLink2 = styled(Link)
+`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -124,7 +153,31 @@ export const SidebarLowerLink2 = styled(Link)`
   }
 `;
 
-export const SidebarLowerLink3 = styled(Link)`
+export const SidebarLowerLink3 = styled(Link)
+`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s ease-in-out;
+  font-size: 2rem;
+  font-weight: 800;
+  text-decoration: none;
+  color: rgba(252, 186, 127);
+  cursor: pointer;
+  padding: 30px 0;
+
+  &:hover {
+    color: #01bf71;
+    transition: 0.5s ease-in-out;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+`;
+
+export const SidebarLowerLink4 = styled(Link)
+`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -146,29 +199,8 @@ export const SidebarLowerLink3 = styled(Link)`
   }
 `;
 
-export const SidebarLowerLink4 = styled(Link)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: 0.5s ease-in-out;
-  font-size: 2rem;
-  font-weight: 800;
-  text-decoration: none;
-  color: #fff;
-  cursor: pointer;
-  padding: 30px 0;
-
-  &:hover {
-    color: #01bf71;
-    transition: 0.5s ease-in-out;
-  }
-
-  @media screen and (max-width: 768px) {
-    font-size: 1.5rem;
-  }
-`;
-
-export const SidebarLowerLink5 = styled(Link)`
+export const SidebarLowerLink5 = styled(Link)
+`
   display: flex;
   justify-content: center;
   align-items: center;

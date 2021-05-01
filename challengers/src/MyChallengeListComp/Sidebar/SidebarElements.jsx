@@ -45,7 +45,7 @@ export const SidebarUpperMenu = styled.ul`
   height: 100vh;
 `;
 
-export const SidebarUpperLink = styled(Link)`
+export const SidebarUpperLink1 = styled(Link)`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -55,6 +55,30 @@ export const SidebarUpperLink = styled(Link)`
   font-weight: 1000;
   text-decoration: none;
   color: #fff;
+  cursor: pointer;
+  padding: 15px;
+  font-family: "Cinzel", serif;
+
+  &:hover {
+    color: #01bf71;
+    transition: 0.1s ease-in-out;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 2.5rem;
+  }
+`;
+
+export const SidebarUpperLink2 = styled(Link)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s ease-in-out;
+  font-size: 3rem;
+  font-weight: 1000;
+  text-decoration: none;
+  color: rgba(252, 186, 127);
   cursor: pointer;
   padding: 15px;
   font-family: "Cinzel", serif;
@@ -88,7 +112,7 @@ export const SidebarLowerLink1 = styled(Link)`
   font-size: 2rem;
   font-weight: 800;
   text-decoration: none;
-  color: #fff;
+  color: rgba(252, 186, 127);
   cursor: pointer;
   padding: 30px 0;
 

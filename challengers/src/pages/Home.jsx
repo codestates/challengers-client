@@ -6,8 +6,6 @@ import Cover from "../components/CoverVideo/Cover";
 import ChallengeList from "../components/ChallengeList/ChallengeList";
 import ChallengerList from "../components/ChallengerList/ChallengerList";
 import Footer from "../components/Footerbar/Footer";
-import Login from "../components/Login/Login";
-import SignUp from "../components/Signup/Signup";
 
 //Home 컴포넌트는 App 컴포넌트 대용으로 모든 컴포넌트를 넣어주기 위한 컴포넌트
 // isRight로 css값 변화시켜주기 위한 것.
@@ -21,11 +19,9 @@ const Home = () => {
 
   return (
     <>
+      <Sidebar isRight={isRight} toggle={toggle} />
       <Switch>
-        <Route path="/login">{<Login />}</Route>
-        <Route path="/signup">{<SignUp />}</Route>
         <Route path="/">
-          <Sidebar isRight={isRight} toggle={toggle} />
           <Navbar toggle={toggle} />
           <Cover />
           <ChallengeList />
