@@ -1,6 +1,18 @@
 import Buttonbox from "./Buttonbox";
-import logo from "../../logo.png";
+// import logo from "../../logo.png";
 import React, { useState, useEffect } from "react";
+import {
+  LoginDiv,
+  LoginForm,
+  Logo,
+  FormLogin,
+  UserId,
+  UseridInput,
+  Password,
+  UserpwInput,
+  // LoginIcon,
+  // BackIcon
+} from './LoginElements';
 
 const Login = () => {
   const [userId, setUserId] = useState("");
@@ -29,39 +41,43 @@ const Login = () => {
   // } else {
   //   setPassword("");
   // }
-  const loginClick = () => {};
-  const backClick = () => {};
+  const loginClick = () => {
+    console.log("로긴")
+  };
+  const backClick = () => {
+    console.log("뒤로가")
+  };
 
   return (
-    <div className="Login">
-      <div className="login-form">
-        <img src={logo} alt="" />
-        <form className="login">
-          <div className="userid">
-            <input
+    <>
+    <LoginDiv>
+      <LoginForm>
+        {/* {<Logo alt="" />} */}
+        <FormLogin>
+          <UserId>
+            <UseridInput
               value={userId}
-              className="userid"
               type="text"
-              placeholder="userId"
+              placeholder="UserId"
               onChange={handleUserId}
             />
-          </div>
+          </UserId>
           <br />
-          <div className="password">
-            <input
+          <Password>
+            <UserpwInput
               value={password}
-              className="password"
               type="password"
               autoComplete="on"
-              placeholder="password"
+              placeholder="Password"
               onChange={handlePassword}
             />
-          </div>
+          </Password>
           <br />
-        </form>
+        </FormLogin>
         <Buttonbox loginClick={loginClick} backClick={backClick} />
-      </div>
-    </div>
+      </LoginForm>
+    </LoginDiv>
+    </>
   );
 };
 
