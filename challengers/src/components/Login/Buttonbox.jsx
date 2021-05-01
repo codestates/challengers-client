@@ -1,18 +1,32 @@
-import React from "react";
+import React from 'react';
 // import { Link } from 'react-router-dom';
 // import styled from 'styled-components';
-function Buttonbox({ loginClick, backClick }) {
-  console.log({ loginClick, backClick });
-  return (
-    <div className="button-box">
-      <button className="login" type="button" onClick={loginClick}>
-        Login
-      </button>
-      <button className="backward" type="button" onClick={backClick}>
-        Back
-      </button>
-    </div>
-  );
+import {
+    ButtonBox,
+    Login,
+    Backward,
+    LoginIcon,
+    BackIcon
+} from './ButtonboxElements';
+
+function Buttonbox({loginClick, backClick}) {
+    console.log("버튼", {loginClick}, {backClick})
+    return (
+        <>
+        <ButtonBox>
+            <Login 
+                type="button"
+                onClick={loginClick}>
+            Login
+            </Login>
+            <Backward 
+                type="button"
+                onClick={backClick}>
+            Back
+            </Backward>
+        </ButtonBox>
+        </>
+    );
 }
 
 export default Buttonbox;
