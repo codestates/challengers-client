@@ -16,10 +16,10 @@ const Navbar = ({ toggle }) => {
     <>
       <Nav>
         <NavbarContainer>
-          <NavLogo to="/">CodeMon</NavLogo>
+          <NavLogo to="/main">CodeMon</NavLogo>
           <NavTitle>Challengers</NavTitle>
           <NavBtn>
-            <BtnSignOutLink to="/">Sign Out</BtnSignOutLink>
+            <BtnSignOutLink to="/main">Sign Out</BtnSignOutLink>
             <BtnMenu onClick={toggle}>Menu</BtnMenu>
           </NavBtn>
           <NavIcon>
