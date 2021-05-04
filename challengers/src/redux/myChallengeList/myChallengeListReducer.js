@@ -12,6 +12,7 @@ const reducerMyChallengeList = (state = initialState, action) => {
     switch(action.type){
         case CALL_MY_CHALLENGE_LIST :
             console.log('axios_MYCHALLENGELIST_GET');
+            // data는 더미데이터, axios으로 요청해야함
             data = [{
                 user_id: 1,
                 id: 1,
