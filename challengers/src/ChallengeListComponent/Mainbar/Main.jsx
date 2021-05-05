@@ -8,7 +8,8 @@ import {
   MainList
 } from "./MainElements";
 
-// import { connect } from "react-redux"; // react, redux연결
+import { connect } from "react-redux"; // react, redux연결
+import {mapStateToProps,mapDispatchToProps} from "../../redux/components/getAndEdit_State";
 
 const Main = (props) => {
   console.log("------------->Main Props : ", props);
@@ -16,24 +17,22 @@ const Main = (props) => {
   return (
     <MainContainer>
       <MainHashTag>
-        {/* {props.myChallengeList.map((el) => {
-          return <div>{el.tag_name}</div>;
-        })} */}
+        {}
       </MainHashTag>
       <MainChallengeList>
         <Cover1 />
         <MainList>
-          {/* {props.myChallengeList.map((data) => {
+          {props.myChallengeList.map((data) => {
             console.log("MAinList : ", data);
             return <Challenge key={data.id} challenge={data.title} />;
-          })} */}
+          })}
         </MainList>
       </MainChallengeList>
     </MainContainer>
   );
 };
 
-export default Main;
+// export default Main;
 
 // const mapStateToProps = (state) => {
 //   console.log("mapStateToProps(My Challenge List) : ", state);
@@ -42,4 +41,4 @@ export default Main;
 //   };
 // };
 
-// export default connect(mapStateToProps)(Main);
+export default connect(mapStateToProps)(Main);

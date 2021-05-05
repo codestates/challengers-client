@@ -30,6 +30,7 @@ const Home = () => {
     //   .catch(err => console.log(err))
     //   .finally(() => console.log("axios GET finish"));
     
+    // dataTag_sample,dataFollower_sample은 테스트를 위한 더미데이터임, axios사용시 주석 or 제거해야함
     let dataTag_sample = [
       {
         id: 0,

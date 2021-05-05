@@ -8,15 +8,18 @@ const initialState = [];
 let data = [];
 
 const reducerMyChallengeList = (state = initialState, action) => {
+
+  console.log('action',action.type, action.payload);
+
   switch (action.type) {
     case CALL_MY_CHALLENGE_LIST:
-      console.log("axios_MYCHALLENGELIST_GET");
-      // data는 더미데이터, axios으로 요청해야함
+      console.log(`axios_MYCHALLENGELIST_GET, 서버에는 ${action.payload} TAG로 요청함`);
+      // data는 더미데이터, axios으로 action.paylod에 대한 데이터를 요청해야함
       data = [
         {
           user_id: 1,
           id: 1,
-          title: "finally I did",
+          title: `finally I did 요청테그 ${action.payload}`,
           tag_name: "prove",
           body: "{content : breathing, date : today}",
           like: 7777
@@ -25,7 +28,7 @@ const reducerMyChallengeList = (state = initialState, action) => {
           user_id: 2,
           id: 2,
           like: 88,
-          title: "catch me if you can",
+          title: `catch me if you can 요청테그 ${action.payload}`,
           tag_name: "prove",
           body: "{content : hacking, date : tomorrow}"
         },
@@ -33,7 +36,7 @@ const reducerMyChallengeList = (state = initialState, action) => {
           user_id: 3,
           id: 12,
           like: 18,
-          title: "I am best",
+          title: `I am best 요청테그 ${action.payload}`,
           tag_name: "brag",
           body: "{content : appearance, date : 1year}"
         },
@@ -41,7 +44,7 @@ const reducerMyChallengeList = (state = initialState, action) => {
           user_id: 4,
           id: 22,
           like: 828,
-          title: "coding god",
+          title: `coding god 요청테그 ${action.payload}`,
           tag_name: "coding",
           body: "{content : coding, date : whole life}"
         }

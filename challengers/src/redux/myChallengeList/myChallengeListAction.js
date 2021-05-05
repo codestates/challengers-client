@@ -3,9 +3,10 @@ import { CALL_MY_CHALLENGE_LIST,
     ADD_MY_CHALLENGE_LIST } from './myChallengeListTypes'
 
 
-export const getMyChallengeList = () => {
+export const getMyChallengeList = (tag) => {
     return {
-        type : CALL_MY_CHALLENGE_LIST
+        type : CALL_MY_CHALLENGE_LIST,
+        payload : tag
     }
 }
 
