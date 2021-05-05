@@ -12,14 +12,18 @@ import {
   LikeIcon
 } from "./ChallengerElements";
 
-const ChallengerList = () => {
+// const likes = arr.sort( (a,b) => {
+//   return b - a;
+// });
+
+const ChallengerList = ({name}) => {
   return (
     <ChallengersListContainer>
       <ChallengerWrapper>
         <ChallengerListTitle>Hall of fame</ChallengerListTitle>
         <ChallengerListCardGroup>
           <ChallengerCard>
-            <ChallengerName>Lee</ChallengerName>
+            {/* {likes.map((name, index) => <ChallengerName key={index}>{name}</ChallengerName>)} */}
             <LikeIcon />
           </ChallengerCard>
           <ChallengerCard>

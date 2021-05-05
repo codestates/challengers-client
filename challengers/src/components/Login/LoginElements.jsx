@@ -43,13 +43,16 @@ export const LoginForm = styled.div`
 `;
 
 // export const Logo = styled.img`
+//   width:50%;
+//   border: 1px solid blue;
 //   background-image: url(${logo});
 // `;
-// // export const Welcome = styled.h1`
-// //   text-align: center;
-// //   margin-top: 50px;
-// //   margin-bottom: 30px;
-// // `;
+export const Welcome = styled.h1`
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  font-family: "Lobster", cursive;
+`;
 
 export const FormLogin = styled.form`
 //   height:100%;

@@ -9,6 +9,7 @@ import {
     BackIcon
 } from './ButtonboxElements';
 
+
 function Buttonbox({loginClick, backClick}) {
     console.log("버튼", {loginClick}, {backClick})
     return (
