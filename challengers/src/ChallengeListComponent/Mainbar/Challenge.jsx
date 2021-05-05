@@ -1,7 +1,8 @@
 import React from "react";
 import { ChallengeContainer, Image } from "./ChallengeElements";
 
-const Challenge = ({ challenge }) => {
+const Challenge = ({ challenge }) => { 
+  console.log(challenge);
   return (
     <>
       <ChallengeContainer>

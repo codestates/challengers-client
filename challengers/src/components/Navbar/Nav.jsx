@@ -17,7 +17,7 @@ const Navbar = ({ toggle }) => {
     <>
       <Nav>
         <NavbarContainer>
-          <NavLogo to="/">CodeMon</NavLogo>
+          <NavLogo to="/main">CodeMon</NavLogo>
           <NavTitle>Challengers</NavTitle>
           <NavBtn>
             <BtnSignUpLink to="/signup">Sign Up</BtnSignUpLink>

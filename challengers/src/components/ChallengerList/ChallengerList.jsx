@@ -12,28 +12,28 @@ import {
   LikeIcon
 } from "./ChallengerElements";
 
-const ChallengerList = () => {
+
+
+const ChallengerList = (props) => {
+
   return (
     <ChallengersListContainer>
       <ChallengerWrapper>
         <ChallengerListTitle>Hall of fame</ChallengerListTitle>
         <ChallengerListCardGroup>
-          <ChallengerCard>
-            <ChallengerName>Lee</ChallengerName>
-            <LikeIcon />
-          </ChallengerCard>
-          <ChallengerCard>
-            <ChallengerName>Lee</ChallengerName>
-            <LikeIcon />
-          </ChallengerCard>
-          <ChallengerCard>
-            <ChallengerName>Lee</ChallengerName>
-            <LikeIcon />
-          </ChallengerCard>
-          <ChallengerCard>
-            <ChallengerName>Lee</ChallengerName>
-            <LikeIcon />
-          </ChallengerCard>
+
+          {
+            props.dataFollower.map((ele) => {
+              return (
+                <ChallengerCard key = {ele.userId}>
+                  <ChallengerName>{ele.userId}</ChallengerName>
+                  <LikeIcon />{ele.Like}
+                </ChallengerCard>
+              )
+            })
+          
+          }
+
         </ChallengerListCardGroup>
       </ChallengerWrapper>
       <ChallengerImg>

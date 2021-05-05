@@ -14,6 +14,9 @@ import {
   Email,
   EmailInput
 } from "./SignupElements";
+import { useHistory } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import axios from "axios";
 
 const Signup = () => {
   const [userId, setUserId] = useState("");
@@ -21,6 +24,7 @@ const Signup = () => {
   const [checkPwd, setCheckPwd] = useState("");
   const [email, setEmail] = useState("");
   const [emailChecked, setEmailChecked] = useState(false);
+  
 
   const writeUserId = (e) => {
     console.log("userID: ", e)
@@ -44,20 +48,43 @@ const Signup = () => {
     console.log("email: ", e)
     e.preventDefault();
     setEmail(e.target.value);
-
-    // if (e.target.value.includes("@")) {
-    //   setEmail(e.target.value);
-    // } else {
-    //   setEmail("");
-    // }
   };
 
+  const history = useHistory();
+  
   const submitClick = () => {
     console.log("제출")
+    axios.post("http://localhost:5000/signup", 
+    {
+      "userId" : userId.value,
+      "password": password.value,
+      "email": email.value
+    },
+    {
+      "Content-Type" : "application/json",
+      withCredentials: true
+    })
+    .then((res) => {
+      console.log(res);
+      if(res.body.message === "Signup succeed") {
+        history.push("/");
+        alert("회원가입이 완료되었습니다!")
+      } else if(res.body.message === "Same user existed") {
+        return;
+      }
+    })
+    .catch((error) => {
+      // console.error(error);
+    })
+    .finally(() => {
+      console.log("axios signup finish")
+    })
   };
 
   const cancelClick = () => {
     console.log("가입취소")
+    alert("가입이 취소되었습니다")
+    history.push("/");
   };
 
   return (

@@ -1,5 +1,4 @@
 import React from "react";
-import { ChallengeData } from "../../data/ChallengeData";
 import Challenge from "./Challenge";
 import Cover1 from "../Video/Cover1";
 import {
@@ -9,15 +8,23 @@ import {
   MainList
 } from "./MainElements";
 
-const Main = () => {
+import { connect } from "react-redux"; // react, redux연결
+import {mapStateToProps,mapDispatchToProps} from "../../redux/components/getAndEdit_State";
+
+const Main = (props) => {
+  console.log("------------->Main Props : ", props);
+
   return (
     <MainContainer>
-      <MainHashTag>HASH TAG</MainHashTag>
+      <MainHashTag>
+        {}
+      </MainHashTag>
       <MainChallengeList>
         <Cover1 />
         <MainList>
-          {ChallengeData.map((data) => {
-            return <Challenge key={data.id} challenge={data.challenge} />;
+          {props.myChallengeList.map((data) => {
+            console.log("MAinList : ", data);
+            return <Challenge key={data.id} challenge={data.title} />;
           })}
         </MainList>
       </MainChallengeList>
@@ -25,4 +32,13 @@ const Main = () => {
   );
 };
 
-export default Main;
+// export default Main;
+
+// const mapStateToProps = (state) => {
+//   console.log("mapStateToProps(My Challenge List) : ", state);
+//   return {
+//     myChallengeList: state.myChallengeList
+//   };
+// };
+
+export default connect(mapStateToProps)(Main);
