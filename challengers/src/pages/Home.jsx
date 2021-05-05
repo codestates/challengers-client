@@ -7,6 +7,7 @@ import ChallengeList from "../components/ChallengeList/ChallengeList";
 import ChallengerList from "../components/ChallengerList/ChallengerList";
 import Footer from "../components/Footerbar/Footer";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 import { connect } from "react-redux"; // react, redux연결
 import {
@@ -23,10 +24,17 @@ const Home = () => {
   const [dataTag, setTag] = useState([]);
   const [dataFollower, setFollower] = useState([]);
 
+  const history = useHistory();
+
   useEffect(() => {
-    console.log('axios 부르기---------------->');
-    // axios.get('http://localhost:5000/')
-    //   .then(data => console.log(data))
+    // console.log('axios 부르기---------------->');
+    // axios.get('http://localhost:5000/', {
+    //   // withCredentials: true
+    // })
+    //   .then((res) => {
+    //     console.log(res)
+    //     history.push("/")
+    //   })
     //   .catch(err => console.log(err))
     //   .finally(() => console.log("axios GET finish"));
     
