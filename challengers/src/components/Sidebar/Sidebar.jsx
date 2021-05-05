@@ -16,37 +16,44 @@ import {
   SidebarLowerLink5,
   SidebarPage
 } from "./SidebarElements";
-// Home에서 toggle, isRight props로 전달 받는다.
-const Sidebar = ({ toggle, isRight }) => {
+
+import { connect } from 'react-redux'; // react, redux연결
+import {getMyChallengeList,
+        deleteMyChallengeList,
+        addMyChallengeList} from '../../redux'; // redux의 Action
+
+// Home에서 oggle, isRight props로 전달 받는다.
+const Sidebar = (props) => {
+  console.log('SideBar : ', props);
   return (
-    <SidebarContainer onClick={toggle} isRight={isRight}>
+    <SidebarContainer onClick={props.toggle} isRight={props.isRight}>
       <Icon>
-        <ShutIcon onClick={toggle} />
+        <ShutIcon onClick={props.toggle} />
       </Icon>
       <SidebarWrapper>
         <SidebarMenu>
-          {/* toggle 클릭 시 false에서 true로 바뀐 후 앞의 링크로 갈 수 있게 세팅. */}
+          {/* props.toggle 클릭 시 false에서 true로 바뀐 후 앞의 링크로 갈 수 있게 세팅. */}
           <SidebarUpperMenu>
-            <SidebarUpperLink to="/tag">Challenge List</SidebarUpperLink>
+            <SidebarUpperLink to="/tag" onClick = {props.getMyChallengeList}>Challenge List</SidebarUpperLink>
 
-            <SidebarUpperLink to="/my-challenges" onClick={toggle}>
+            <SidebarUpperLink to="/my-challenges" onClick={props.toggle}>
               <SidebarPage>My Page</SidebarPage>
 
-              {/* toggle 클릭 시 false에서 true로 바뀐 후 앞의 링크로 갈 수 있게 세팅. */}
+              {/* props.toggle 클릭 시 false에서 true로 바뀐 후 앞의 링크로 갈 수 있게 세팅. */}
               <SidebarLowerMenu>
-                <SidebarLowerLink1 to="/my-challenges" onClick={toggle}>
+                <SidebarLowerLink1 to="/my-challenges" onClick={props.toggle}>
                   My Challenges
                 </SidebarLowerLink1>
-                <SidebarLowerLink2 to="/pin" onClick={toggle}>
+                <SidebarLowerLink2 to="/pin" onClick={props.toggle}>
                   Pin List
                 </SidebarLowerLink2>
-                <SidebarLowerLink3 to="/change-info" onClick={toggle}>
+                <SidebarLowerLink3 to="/change-info" onClick={props.toggle}>
                   Change Info
                 </SidebarLowerLink3>
-                <SidebarLowerLink4 to="/challenge" onClick={toggle}>
+                <SidebarLowerLink4 to="/challenge" onClick={props.toggle}>
                   Make New Challenge
                 </SidebarLowerLink4>
-                <SidebarLowerLink5 to="/Follower" onClick={toggle}>
+                <SidebarLowerLink5 to="/following" onClick={props.toggle}>
                   Follower
                 </SidebarLowerLink5>
               </SidebarLowerMenu>
@@ -58,4 +65,31 @@ const Sidebar = ({ toggle, isRight }) => {
   );
 };
 
-export default Sidebar;
+
+const mapStateToProps = state => {
+  console.log('mapStateToProps(My Challenge List) : ', state);
+  return {
+      myChallengeList : state.myChallengeList
+  }
+}
+
+const mapDispatchToProps = dispatch => { // 버튼에 영향
+  return {
+      getMyChallengeList : () => {
+          dispatch(getMyChallengeList());
+      },
+      deleteMyChallengeList : () => {
+          dispatch(deleteMyChallengeList());
+      },
+      addMyChallengeList : () => {
+          dispatch(addMyChallengeList());
+      }
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Sidebar);
+
+// export default Sidebar;

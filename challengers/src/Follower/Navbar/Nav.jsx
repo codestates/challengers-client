@@ -6,8 +6,7 @@ import {
   NavLogo,
   NavTitle,
   NavBtn,
-  BtnSignInLink,
-  BtnSignUpLink,
+  BtnSignOutLink,
   NavIcon,
   BtnMenu
 } from "./NavElements";
@@ -17,11 +16,10 @@ const Navbar = ({ toggle }) => {
     <>
       <Nav>
         <NavbarContainer>
-          <NavLogo to="/main">CodeMon</NavLogo>
+          <NavLogo to="/">CodeMon</NavLogo>
           <NavTitle>Challengers</NavTitle>
           <NavBtn>
-            <BtnSignUpLink to="/signup">Sign Up</BtnSignUpLink>
-            <BtnSignInLink to="/login">Log In</BtnSignInLink>
+            <BtnSignOutLink to="/">Sign Out</BtnSignOutLink>
             <BtnMenu onClick={toggle}>Menu</BtnMenu>
           </NavBtn>
           <NavIcon>

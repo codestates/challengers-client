@@ -10,12 +10,13 @@ import {
   UserId,
   UseridInput,
   Password,
-  UserpwInput,
+  UserpwInput
   // LoginIcon,
   // BackIcon
 } from './LoginElements';
 import axios from "axios";
 // import { json } from "sequelize/types";
+
 
 const Login = () => {
   const [userId, setUserId] = useState("");
@@ -44,6 +45,7 @@ const Login = () => {
   // } else {
   //   setPassword("");
   // }
+
 
   const history = useHistory();
 
@@ -98,6 +100,7 @@ const Login = () => {
     console.log("뒤로가")
     alert("로그인이 취소되었습니다. 메인페이지로 돌아갑니다")
     history.push("/");
+
   };
 
   return (
@@ -129,6 +132,7 @@ const Login = () => {
         <Buttonbox loginClick={loginClickInPage} backClick={backClickInPage} />
       </LoginForm>
     </LoginDiv>
+
     </>
   );
 };
