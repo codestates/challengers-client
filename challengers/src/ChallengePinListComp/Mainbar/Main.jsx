@@ -1,6 +1,5 @@
 import React from "react";
 import { BiWinkSmile } from "react-icons/bi";
-import { ChallengeData } from "../../data/ChallengeData";
 import Challenge from "./Challenge";
 import Cover1 from "../Video/Cover1";
 import {
