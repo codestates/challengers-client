@@ -7,12 +7,19 @@ import {
   MainChallengeList,
   MainList
 } from "./MainElements";
+import axios from 'axios';
 
 import { connect } from "react-redux"; // react, redux연결
 import {mapStateToProps,mapDispatchToProps} from "../../redux/components/getAndEdit_State";
 
 const Main = (props) => {
-  console.log("------------->Main Props : ", props);
+
+  const data = async () => {return await axios.get('http://localhost:5000/main')
+  .then(async (res) => {return await res.data.mark1})
+  .catch(err => console.log(err))
+  .finally(() => console.log('http://localhost:5000/main GET Finish'));}
+
+  console.log("Page Axios ---> ", data);
 
   return (
     <MainContainer>
@@ -34,11 +41,9 @@ const Main = (props) => {
 
 // export default Main;
 
-// const mapStateToProps = (state) => {
-//   console.log("mapStateToProps(My Challenge List) : ", state);
-//   return {
-//     myChallengeList: state.myChallengeList
-//   };
-// };
+// {props.myChallengeList.map((data) => {
+//   console.log("MAinList : ", data);
+//   return <Challenge key={data.id} challenge={data.title} />;
+// })}
 
 export default connect(mapStateToProps)(Main);
