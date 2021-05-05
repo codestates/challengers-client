@@ -1,21 +1,22 @@
 import React from "react";
-import image from "../../images/image15.svg";
+import image from "../../images/image16.png";
 import {
-  ChallengeContainer,
+  ChallengeContainer1,
   Image,
   ChallengeImg,
   Img
 } from "./ChallengeElements";
 
-const Challenge = () => {
+const Challenge = ({ challenge1 }) => {
   return (
     <>
-      <ChallengeContainer>
+      <ChallengeContainer1>
         <ChallengeImg>
-          PIN: <Img src={image} />
+          FOLLOWING: <Img src={image} />
         </ChallengeImg>
+        {challenge1}
         <Image />
-      </ChallengeContainer>
+      </ChallengeContainer1>
     </>
   );
 };

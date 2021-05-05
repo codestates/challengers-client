@@ -1,5 +1,5 @@
 import React from "react";
-import Play from "../../videos/video3.mp4";
+import Play from "../../videos/video5.mp4";
 import { CoverContainer, CoverVideoArea, VideoPlay } from "./CoverElements";
 
 const Cover1 = () => {

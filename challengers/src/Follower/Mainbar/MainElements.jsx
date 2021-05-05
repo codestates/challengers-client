@@ -27,6 +27,27 @@ export const MainList = styled.div `
   justify-content: center;
   padding: 2rem;
   cursor: pointer;
+  border: 3px solid black;
+  border-radius: 20px;
+
+  @media screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  }
+`;
+
+export const MainList1 = styled.div `
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  cursor: pointer;
+  border: 3px solid black;
+  border-radius: 20px;
 
   @media screen and (max-width: 768px) {
     display: flex;
