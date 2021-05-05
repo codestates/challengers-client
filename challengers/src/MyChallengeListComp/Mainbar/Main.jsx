@@ -1,5 +1,4 @@
 import React from "react";
-import { ChallengeData } from "../../data/ChallengeData";
 import Challenge from "./Challenge";
 import Cover1 from "../Video/Cover1";
 import { GiOnTarget } from "react-icons/gi";
@@ -10,7 +9,8 @@ import {
   MainList
 } from "./MainElements";
 
-const Main = () => {
+const Main = ({ dataTag }) => {
+  console.log({ dataTag });
   return (
     <MainContainer>
       <MainHashTag>
@@ -19,8 +19,8 @@ const Main = () => {
       <MainChallengeList>
         <Cover1 />
         <MainList>
-          {ChallengeData.map((data) => {
-            return <Challenge key={data.id} challenge={data.challenge} />;
+          {dataTag.map((data) => {
+            return <Challenge key={data.id} challenge={data.tag_name} />;
           })}
         </MainList>
       </MainChallengeList>

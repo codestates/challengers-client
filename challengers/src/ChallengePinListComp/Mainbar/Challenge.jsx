@@ -7,13 +7,14 @@ import {
   Img
 } from "./ChallengeElements";
 
-const Challenge = () => {
+const Challenge = ({ challenge }) => {
   return (
     <>
       <ChallengeContainer>
         <ChallengeImg>
           PIN: <Img src={image} />
         </ChallengeImg>
+        {challenge}
         <Image />
       </ChallengeContainer>
     </>

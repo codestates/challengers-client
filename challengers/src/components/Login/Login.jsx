@@ -13,16 +13,13 @@ import {
   UserpwInput
   // LoginIcon,
   // BackIcon
-} from './LoginElements';
+} from "./LoginElements";
 import axios from "axios";
 // import { json } from "sequelize/types";
-
 
 const Login = () => {
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
-  const [userIdChecked, setUserIdChecked] = useState(false);
-  const [passwordChecked, setPasswordChecked] = useState(false);
 
   useEffect(() => {
     console.log("Id Input", userId);
@@ -46,26 +43,28 @@ const Login = () => {
   //   setPassword("");
   // }
 
-
   const history = useHistory();
 
   const loginClickInPage = async () => {
-    console.log("로긴 :", userId, password)
-      await axios.post("http://localhost:5000/login",
-      {
-          userId, 
-          password, 
-      },
-      {
-        // 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-        'Content-Type': 'application/json;charset=UTF-8',
-        withCredentials: true
-      })
+    console.log("로긴 :", userId, password);
+    await axios
+      .post(
+        "http://localhost:5000/login",
+        {
+          userId,
+          password
+        },
+        {
+          // 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+          "Content-Type": "application/json;charset=UTF-8",
+          withCredentials: true
+        }
+      )
       .then((res) => {
         console.log(res);
-        if(res.data.message === "Login succeed") {
+        if (res.data.message === "Login succeed") {
           history.push("/main");
-          window.alert("로그인 되었습니다")
+          window.alert("로그인 되었습니다");
         }
       })
       .catch((error) => {
@@ -82,8 +81,8 @@ const Login = () => {
         // console.log(error.config);
       })
       .finally(() => {
-        console.log("axios finish")
-      })
+        console.log("axios finish");
+      });
     // axios.post("http://localhost:5000/login",
     // {// withCredentials: true
 
@@ -95,44 +94,44 @@ const Login = () => {
     // .catch(err => console.log(err));
   };
 
-
   const backClickInPage = () => {
-    console.log("뒤로가")
-    alert("로그인이 취소되었습니다. 메인페이지로 돌아갑니다")
+    console.log("뒤로가");
+    alert("로그인이 취소되었습니다. 메인페이지로 돌아갑니다");
     history.push("/");
-
   };
 
   return (
     <>
-    <LoginDiv>
-      <LoginForm>
-        <Welcome>Join to the CodeMon!</Welcome>
-        <FormLogin>
-          <UserId>
-            <UseridInput
-              value={userId}
-              type="text"
-              placeholder="UserId"
-              onChange={handleUserId}
-            />
-          </UserId>
-          <br />
-          <Password>
-            <UserpwInput
-              value={password}
-              type="password"
-              autoComplete="on"
-              placeholder="Password"
-              onChange={handlePassword}
-            />
-          </Password>
-          <br />
-        </FormLogin>
-        <Buttonbox loginClick={loginClickInPage} backClick={backClickInPage} />
-      </LoginForm>
-    </LoginDiv>
-
+      <LoginDiv>
+        <LoginForm>
+          <Welcome>Join to the CodeMon!</Welcome>
+          <FormLogin>
+            <UserId>
+              <UseridInput
+                value={userId}
+                type="text"
+                placeholder="UserId"
+                onChange={handleUserId}
+              />
+            </UserId>
+            <br />
+            <Password>
+              <UserpwInput
+                value={password}
+                type="password"
+                autoComplete="on"
+                placeholder="Password"
+                onChange={handlePassword}
+              />
+            </Password>
+            <br />
+          </FormLogin>
+          <Buttonbox
+            loginClick={loginClickInPage}
+            backClick={backClickInPage}
+          />
+        </LoginForm>
+      </LoginDiv>
     </>
   );
 };
