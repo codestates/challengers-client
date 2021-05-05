@@ -10,7 +10,8 @@ import {
   MainList
 } from "./MainElements";
 
-const Main = () => {
+const Main = ({ dataTag }) => {
+  console.log({ dataTag });
   return (
     <MainContainer>
       <MainHashTag>
@@ -19,9 +20,9 @@ const Main = () => {
       <MainChallengeList>
         <Cover1 />
         <MainList>
-          {ChallengeData.map((challenge) => {
+          {dataTag.map((challenge) => {
             return (
-              <Challenge key={challenge.id} challenge={challenge.challenge} />
+              <Challenge key={challenge.id} challenge={challenge.tag_name} />
             );
           })}
         </MainList>
