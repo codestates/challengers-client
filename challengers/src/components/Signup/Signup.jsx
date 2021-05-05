@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ButtonSignbox from "./ButtonSignbox";
-import { 
+import {
   SignupDiv,
   SignupForm,
   Title,
@@ -12,11 +12,12 @@ import {
   CheckPassword,
   CheckpwInput,
   Email,
-  EmailInput
+  EmailInput,
 } from "./SignupElements";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+// require("dotenv").config();
 
 const Signup = () => {
   const [userId, setUserId] = useState("");
@@ -24,71 +25,75 @@ const Signup = () => {
   const [checkPwd, setCheckPwd] = useState("");
   const [email, setEmail] = useState("");
   const [emailChecked, setEmailChecked] = useState(false);
-  
 
   const writeUserId = (e) => {
-    console.log("userID: ", e)
+    console.log("userID: ", e);
     e.preventDefault();
     setUserId(e.target.value);
   };
 
   const writePwd = (e) => {
-    console.log("pw: ", e)
+    console.log("pw: ", e);
     e.preventDefault();
     setPassword(e.target.value);
   };
 
   const writeSamepwd = (e) => {
-    console.log("checkpw: ", e)
+    console.log("checkpw: ", e);
     e.preventDefault();
     setCheckPwd(e.target.value);
   };
 
   const writeEmail = (e) => {
-    console.log("email: ", e)
+    console.log("email: ", e);
     e.preventDefault();
     setEmail(e.target.value);
   };
 
   const history = useHistory();
-  
+
   const submitClick = async () => {
-    if(password !== checkPwd) {
-      window.alert("입력하신 비밀번호가 서로 일치하지 않습니다")
+    console.log("환경변수", process.env.REACT_APP_LINK_URL);
+    console.log("프로세스 env", process.env);
+    if (password !== checkPwd) {
+      window.alert("입력하신 비밀번호가 서로 일치하지 않습니다");
       return;
     }
-    console.log("제출 :", userId, password, email)
-    await axios.post("http://localhost:5000/signup", 
-    {
-      userId,
-      password,
-      email,
-    },
-    {
-      "Content-Type" : "application/json",
-      withCredentials: true
-    })
-    .then((res) => {
-      console.log(res);
-      if(res.data.message === "Signup succeed") {
-        history.push("/main");
-        window.alert("회원가입이 완료되었습니다!")
-      } else if(res.data.message === "Same user existed") {
-        window.alert("동일한 아이디나 이메일이 존재합니다")
-        return;
-      }
-    })
-    .catch((error) => {
-      console.error(error.message);
-    })
-    .finally(() => {
-      console.log("axios signup finish")
-    })
+    console.log("제출 :", userId, password, email);
+    await axios
+      .post(
+        `${process.env.REACT_APP_LINK_URL}/signup`,
+        {
+          userId,
+          password,
+          email,
+        },
+        {
+          "Content-Type": "application/json",
+          withCredentials: true,
+        }
+      )
+      .then((res) => {
+        console.log(res);
+        if (res.data.message === "Signup succeed") {
+          history.push("/main");
+          window.alert("회원가입이 완료되었습니다!");
+        } else if (res.data.message === "Same user existed") {
+          window.alert("동일한 아이디나 이메일이 존재합니다");
+          return;
+        }
+      })
+      .catch((error) => {
+        console.error(error.message);
+      })
+      .finally(() => {
+        console.log("axios signup finish");
+      });
   };
 
   const cancelClick = () => {
-    console.log("가입취소")
-    alert("가입이 취소되었습니다")
+    console.log("가입취소");
+    alert("가입이 취소되었습니다");
     history.push("/main");
   };
 
