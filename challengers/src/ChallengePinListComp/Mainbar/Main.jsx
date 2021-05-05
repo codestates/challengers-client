@@ -1,6 +1,5 @@
 import React from "react";
 import { BiWinkSmile } from "react-icons/bi";
-import { ChallengeData } from "../../data/ChallengeData";
 import Challenge from "./Challenge";
 import Cover1 from "../Video/Cover1";
 import {
@@ -10,7 +9,8 @@ import {
   MainList
 } from "./MainElements";
 
-const Main = () => {
+const Main = ({ dataTag }) => {
+  console.log({ dataTag });
   return (
     <MainContainer>
       <MainHashTag>
@@ -19,9 +19,9 @@ const Main = () => {
       <MainChallengeList>
         <Cover1 />
         <MainList>
-          {ChallengeData.map((challenge) => {
+          {dataTag.map((challenge) => {
             return (
-              <Challenge key={challenge.id} challenge={challenge.challenge} />
+              <Challenge key={challenge.id} challenge={challenge.tag_name} />
             );
           })}
         </MainList>

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Cover1 from "../Video/Cover1";
 import {
   MakeNewChallengesDiv,
   FormNewChallenge,
@@ -29,7 +30,9 @@ const Main = () => {
     setBody(e.target.value);
   };
 
-  const confirmClick = () => {};
+  const confirmClick = () => {
+    console.log("asdfads");
+  };
 
   const cancelClick = () => {};
 
@@ -37,7 +40,8 @@ const Main = () => {
     <>
       <MakeNewChallengesDiv>
         <FormNewChallenge>
-          <MakeNewChallengeTitle>MAKE NEW CHALLENGE</MakeNewChallengeTitle>
+          <MakeNewChallengeTitle> MAKE NEW CHALLENGE </MakeNewChallengeTitle>{" "}
+          <Cover1 />
           <FormNew>
             <TitleInput
               value={title}
@@ -61,8 +65,8 @@ const Main = () => {
             />
           </FormNew>
           <ButtonWrapper>
-            <CheckedBtn>Confirm</CheckedBtn>
-            <CancelBtn>Cancel</CancelBtn>
+            <CheckedBtn onClick={confirmClick}> Confirm </CheckedBtn>{" "}
+            <CancelBtn onClick={cancelClick}> Cancel </CancelBtn>
           </ButtonWrapper>
         </FormNewChallenge>
       </MakeNewChallengesDiv>

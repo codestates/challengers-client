@@ -8,6 +8,7 @@ import ChallengeList from "../components/ChallengeList/ChallengeList";
 import ChallengerList from "../components/ChallengerList/ChallengerList";
 import Footer from "../components/Footerbar/Footer";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 
 //Home 컴포넌트는 App 컴포넌트 대용으로 모든 컴포넌트를 넣어주기 위한 컴포넌트
@@ -18,7 +19,10 @@ const Home = () => {
   const [dataTag, setTag] = useState([]);
   const [dataFollower, setFollower] = useState([]);
 
+  const history = useHistory();
+
   useEffect(() => {
+
     console.log('axios 부르기---------------->');
     axios.get('http://localhost:5000/main')
       .then(data => {
@@ -42,6 +46,18 @@ const Home = () => {
       })
       .catch(err => console.log(err))
       .finally(() => console.log("axios GET finish"));
+
+    // console.log('axios 부르기---------------->');
+    // axios.get('http://localhost:5000/', {
+    //   // withCredentials: true
+    // })
+    //   .then((res) => {
+    //     console.log(res)
+    //     history.push("/")
+    //   })
+    //   .catch(err => console.log(err))
+    //   .finally(() => console.log("axios GET finish"));
+
     
     // dataTag_sample,dataFollower_sample은 테스트를 위한 더미데이터임, axios사용시 주석 or 제거해야함
     // let dataTag_sample = [
@@ -87,7 +103,9 @@ const Home = () => {
 
   const toggle = () => {
     setIsRight(!isRight);
-  };
+  };>>>>>>> dev
+61
+    
 
   return (
     <>
