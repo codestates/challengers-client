@@ -52,13 +52,17 @@ const Signup = () => {
 
   const history = useHistory();
   
-  const submitClick = () => {
-    console.log("제출")
-    axios.post("http://localhost:5000/signup", 
+  const submitClick = async () => {
+    if(password !== checkPwd) {
+      window.alert("입력하신 비밀번호가 서로 일치하지 않습니다")
+      return;
+    }
+    console.log("제출 :", userId, password, email)
+    await axios.post("http://localhost:5000/signup", 
     {
-      "userId" : userId.value,
-      "password": password.value,
-      "email": email.value
+      userId,
+      password,
+      email,
     },
     {
       "Content-Type" : "application/json",
@@ -66,15 +70,16 @@ const Signup = () => {
     })
     .then((res) => {
       console.log(res);
-      if(res.body.message === "Signup succeed") {
-        history.push("/");
-        alert("회원가입이 완료되었습니다!")
-      } else if(res.body.message === "Same user existed") {
+      if(res.data.message === "Signup succeed") {
+        history.push("/main");
+        window.alert("회원가입이 완료되었습니다!")
+      } else if(res.data.message === "Same user existed") {
+        window.alert("동일한 아이디나 이메일이 존재합니다")
         return;
       }
     })
     .catch((error) => {
-      // console.error(error);
+      console.error(error.message);
     })
     .finally(() => {
       console.log("axios signup finish")
@@ -84,7 +89,7 @@ const Signup = () => {
   const cancelClick = () => {
     console.log("가입취소")
     alert("가입이 취소되었습니다")
-    history.push("/");
+    history.push("/main");
   };
 
   return (

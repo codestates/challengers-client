@@ -63,9 +63,15 @@ const Login = () => {
       })
       .then((res) => {
         console.log(res);
-        if(res.data.message === "Login succeed") {
+        if(res.data.message === "login succeed") {
           history.push("/main");
           window.alert("로그인 되었습니다")
+        } else if(res.data.message === "User is not existed") {
+          window.alert("사용자가 존재하지 않습니다")
+          return;
+        } else if(res.data.message === "You have wrong password") {
+          window.alert("비밀번호가 틀립니다")
+          return;
         }
       })
       .catch((error) => {
@@ -99,7 +105,7 @@ const Login = () => {
   const backClickInPage = () => {
     console.log("뒤로가")
     alert("로그인이 취소되었습니다. 메인페이지로 돌아갑니다")
-    history.push("/");
+    history.push("/main");
 
   };
 
