@@ -12,12 +12,16 @@ import {
   LikeIcon
 } from "./ChallengerElements";
 
+
+
 const ChallengerList = (props) => {
+
   return (
     <ChallengersListContainer>
       <ChallengerWrapper>
         <ChallengerListTitle>Hall of fame</ChallengerListTitle>
         <ChallengerListCardGroup>
+
           {
             props.dataFollower.map((ele) => {
               return (
@@ -29,6 +33,7 @@ const ChallengerList = (props) => {
             })
           
           }
+
         </ChallengerListCardGroup>
       </ChallengerWrapper>
       <ChallengerImg>

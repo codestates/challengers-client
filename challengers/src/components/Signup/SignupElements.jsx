@@ -45,6 +45,7 @@ export const Title = styled.h1`
    text-align: center;
    margin-top: 50px;
    margin-bottom: 30px;
+   font-family: "Lobster", cursive;
 `;
 
 export const FormSignup = styled.form`

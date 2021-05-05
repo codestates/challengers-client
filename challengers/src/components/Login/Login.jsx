@@ -1,9 +1,11 @@
 import Buttonbox from "./Buttonbox";
-// import logo from "../../logo.png";
+// import Logo from "../../logo.png";
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import {
   LoginDiv,
   LoginForm,
+  Welcome,
   FormLogin,
   UserId,
   UseridInput,
@@ -11,7 +13,10 @@ import {
   UserpwInput
   // LoginIcon,
   // BackIcon
-} from "./LoginElements";
+} from './LoginElements';
+import axios from "axios";
+// import { json } from "sequelize/types";
+
 
 const Login = () => {
   const [userId, setUserId] = useState("");
@@ -40,42 +45,94 @@ const Login = () => {
   // } else {
   //   setPassword("");
   // }
-  const loginClick = () => {
-    console.log("로긴");
+
+
+  const history = useHistory();
+
+  const loginClickInPage = async () => {
+    console.log("로긴 :", userId, password)
+      await axios.post("http://localhost:5000/login",
+      {
+          userId, 
+          password, 
+      },
+      {
+        // 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        'Content-Type': 'application/json;charset=UTF-8',
+        withCredentials: true
+      })
+      .then((res) => {
+        console.log(res);
+        if(res.data.message === "Login succeed") {
+          history.push("/main");
+          window.alert("로그인 되었습니다")
+        }
+      })
+      .catch((error) => {
+        console.error(error.message);
+        // if(error.response) {
+        //   console.log(error.response.data)
+        //   console.log(error.response.status)
+        //   console.log(error.response.headers)
+        // } else if(error.request) {
+        //   console.log(error.request)
+        // } else {
+        //   console.log('Error', error.message)
+        // }
+        // console.log(error.config);
+      })
+      .finally(() => {
+        console.log("axios finish")
+      })
+    // axios.post("http://localhost:5000/login",
+    // {// withCredentials: true
+
+    //     "userId" : "kimcoding",
+    //     "password" : "1234"
+
+    // },{withCredentials: true})
+    // .then(data => console.log(data.data.message))
+    // .catch(err => console.log(err));
   };
-  const backClick = () => {
-    console.log("뒤로가");
+
+
+  const backClickInPage = () => {
+    console.log("뒤로가")
+    alert("로그인이 취소되었습니다. 메인페이지로 돌아갑니다")
+    history.push("/");
+
   };
 
   return (
     <>
-      <LoginDiv>
-        <LoginForm>
-          {/* {<Logo alt="" />} */}
-          <FormLogin>
-            <UserId>
-              <UseridInput
-                value={userId}
-                type="text"
-                placeholder="UserId"
-                onChange={handleUserId}
-              />
-            </UserId>
-            <br />
-            <Password>
-              <UserpwInput
-                value={password}
-                type="password"
-                autoComplete="on"
-                placeholder="Password"
-                onChange={handlePassword}
-              />
-            </Password>
-            <br />
-          </FormLogin>
-          <Buttonbox loginClick={loginClick} backClick={backClick} />
-        </LoginForm>
-      </LoginDiv>
+    <LoginDiv>
+      <LoginForm>
+        <Welcome>Join to the CodeMon!</Welcome>
+        <FormLogin>
+          <UserId>
+            <UseridInput
+              value={userId}
+              type="text"
+              placeholder="UserId"
+              onChange={handleUserId}
+            />
+          </UserId>
+          <br />
+          <Password>
+            <UserpwInput
+              value={password}
+              type="password"
+              autoComplete="on"
+              placeholder="Password"
+              onChange={handlePassword}
+            />
+          </Password>
+          <br />
+        </FormLogin>
+        <Buttonbox loginClick={loginClickInPage} backClick={backClickInPage} />
+      </LoginForm>
+    </LoginDiv>
+
     </>
   );
 };
