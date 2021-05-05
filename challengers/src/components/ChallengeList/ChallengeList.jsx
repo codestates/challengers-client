@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import image from "../../images/image1.svg";
 import { useHistory } from "react-router-dom";
 import {
@@ -12,7 +12,8 @@ import {
   ChallengeTag,
   ChallengeHashTag
 } from "./ChallengeListElements";
-// import { connect } from "react-redux"; // react, redux연결
+import { connect } from "react-redux"; // react, redux연결
+import {mapStateToProps,mapDispatchToProps} from "../../redux/components/getAndEdit_State";
 
 // 메인화면의 Challenge List를 출력한다.
 const ChallengeList = (props) => {
@@ -31,7 +32,10 @@ const ChallengeList = (props) => {
             return (
               <ChallengeCard
                 key={"tag" + String(ele.id)}
-                onClick={() => history.push("/tag")}
+                onClick={() => {
+                  history.push("/tag");
+                  props.getMyChallengeList(ele.tag_name);
+                }}
               >
                 <ChallengeTag>{ele.title}</ChallengeTag>
                 <ChallengeHashTag># {ele.tag_name}</ChallengeHashTag>
@@ -51,11 +55,13 @@ const ChallengeList = (props) => {
 //   };
 // };
 
-// export default connect(mapStateToProps)(ChallengeList);
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(ChallengeList);
 
 // <ChallengeCard>
 //             <ChallengeTag>CHALLENGE TAG</ChallengeTag>
 //             <ChallengeHashTag># CHALLENGE!</ChallengeHashTag>
 // </ChallengeCard>
 
-export default ChallengeList;
+// export default ChallengeList;

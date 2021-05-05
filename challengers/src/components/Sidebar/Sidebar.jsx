@@ -17,14 +17,15 @@ import {
   SidebarPage
 } from "./SidebarElements";
 
-import { connect } from 'react-redux'; // react, redux연결
-import {getMyChallengeList,
-        deleteMyChallengeList,
-        addMyChallengeList} from '../../redux'; // redux의 Action
+import { connect } from 'react-redux'; // react, redux연결 
+import {mapStateToProps,mapDispatchToProps} from "../../redux/components/getAndEdit_State";
 
 // Home에서 oggle, isRight props로 전달 받는다.
 const Sidebar = (props) => {
   console.log('SideBar : ', props);
+
+  
+
   return (
     <SidebarContainer onClick={props.toggle} isRight={props.isRight}>
       <Icon>
@@ -34,7 +35,10 @@ const Sidebar = (props) => {
         <SidebarMenu>
           {/* props.toggle 클릭 시 false에서 true로 바뀐 후 앞의 링크로 갈 수 있게 세팅. */}
           <SidebarUpperMenu>
-            <SidebarUpperLink to="/tag" onClick = {props.getMyChallengeList}>Challenge List</SidebarUpperLink>
+            <SidebarUpperLink to="/tag" onClick = {()=>{
+              console.log("Hello World");
+              props.getMyChallengeList("No Tag")
+              }}>Challenge List</SidebarUpperLink>
 
             <SidebarUpperLink to="/my-challenges" onClick={props.toggle}>
               <SidebarPage>My Page</SidebarPage>
@@ -66,26 +70,7 @@ const Sidebar = (props) => {
 };
 
 
-const mapStateToProps = state => {
-  console.log('mapStateToProps(My Challenge List) : ', state);
-  return {
-      myChallengeList : state.myChallengeList
-  }
-}
 
-const mapDispatchToProps = dispatch => { // 버튼에 영향
-  return {
-      getMyChallengeList : () => {
-          dispatch(getMyChallengeList());
-      },
-      deleteMyChallengeList : () => {
-          dispatch(deleteMyChallengeList());
-      },
-      addMyChallengeList : () => {
-          dispatch(addMyChallengeList());
-      }
-  }
-}
 
 export default connect(
   mapStateToProps,
