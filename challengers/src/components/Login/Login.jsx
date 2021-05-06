@@ -61,9 +61,12 @@ const Login = () => {
         }
       )
       .then((res) => {
-        console.log(res);
+        console.log("응답확인", res);
         if (res.data.message === "login succeed") {
-          history.push("/main");
+          // history.push("/main");
+          let sessionKey = "userSession";
+          sessionStorage.setItem(sessionKey, res.data.sessionId);
+          console.log("세션 저장 확인", sessionStorage.getItem("userSession"));
           window.alert("로그인 되었습니다");
         } else if (res.data.message === "User is not existed") {
           window.alert("사용자가 존재하지 않습니다");
