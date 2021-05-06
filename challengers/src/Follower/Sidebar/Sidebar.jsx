@@ -18,6 +18,11 @@ import {
 } from "./SidebarElements";
 // Home에서 toggle, isRight props로 전달 받는다.
 const Sidebar = ({ toggle, isRight }) => {
+
+  const testFun = () => {
+    console.log('testFun');
+  }
+
   return (
     <SidebarContainer onClick={toggle} isRight={isRight}>
       <Icon>
@@ -25,9 +30,9 @@ const Sidebar = ({ toggle, isRight }) => {
       </Icon>
       <SidebarWrapper>
         <SidebarMenu>
-          {/* toggle 클릭 시 false에서 true로 바뀐 후 앞의 링크로 갈 수 있게 세팅. */}
+          {/* toggle 클릭 시 false에서 true로 바뀐 후 앞의 링크로 갈 수 있게 세팅. onClick={toggle}*/}
           <SidebarUpperMenu>
-            <SidebarUpperLink1 to="/tag" onClick={toggle}>
+            <SidebarUpperLink1 to="/tag" onClick={toggle} >
               Challenge List
             </SidebarUpperLink1>
 

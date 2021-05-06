@@ -1,3 +1,4 @@
+import axios from "axios";
 import {
   CALL_MY_CHALLENGE_LIST,
   DELETE_MY_CHALLENGE_LIST,
@@ -49,6 +50,8 @@ const reducerMyChallengeList = (state = initialState, action) => {
           body: "{content : coding, date : whole life}"
         }
       ];
+
+      console.log("Axios CALL_MY_CHALLENGE_LIST------->",data);
       return [...data];
 
     case DELETE_MY_CHALLENGE_LIST:
@@ -75,3 +78,38 @@ const reducerMyChallengeList = (state = initialState, action) => {
 };
 
 export default reducerMyChallengeList;
+
+      // data = [
+      //   {
+      //     user_id: 1,
+      //     id: 1,
+      //     title: `finally I did 요청테그 ${action.payload}`,
+      //     tag_name: "prove",
+      //     body: "{content : breathing, date : today}",
+      //     like: 7777
+      //   },
+      //   {
+      //     user_id: 2,
+      //     id: 2,
+      //     like: 88,
+      //     title: `catch me if you can 요청테그 ${action.payload}`,
+      //     tag_name: "prove",
+      //     body: "{content : hacking, date : tomorrow}"
+      //   },
+      //   {
+      //     user_id: 3,
+      //     id: 12,
+      //     like: 18,
+      //     title: `I am best 요청테그 ${action.payload}`,
+      //     tag_name: "brag",
+      //     body: "{content : appearance, date : 1year}"
+      //   },
+      //   {
+      //     user_id: 4,
+      //     id: 22,
+      //     like: 828,
+      //     title: `coding god 요청테그 ${action.payload}`,
+      //     tag_name: "coding",
+      //     body: "{content : coding, date : whole life}"
+      //   }
+      // ];
