@@ -10,7 +10,6 @@ import Footer from "../components/Footerbar/Footer";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 
-
 //Home 컴포넌트는 App 컴포넌트 대용으로 모든 컴포넌트를 넣어주기 위한 컴포넌트
 // isRight로 css값 변화시켜주기 위한 것.
 // toggle을 사용하여 클릭 시 상태값이 변경될 수 있도록
@@ -22,29 +21,31 @@ const Home = () => {
   const history = useHistory();
 
   useEffect(() => {
-
-    console.log('axios 부르기---------------->');
-    axios.get('http://localhost:5000/main')
-      .then(data => {
-        console.log("mark1 Data : ",data.data.mark1);
-        setTag(["ok"])
+    console.log("axios 부르기---------------->");
+    axios
+      .get(`${process.env.REACT_APP_LINK_URL}/main`, {
+        headers: {
+          userSessionId: sessionStorage.getItem("userSession"),
+        },
+      })
+      .then((data) => {
+        console.log("mark1 Data : ", data.data.mark1);
+        setTag(["ok"]);
         // setTag([...dataTag, ...dataTag_sample])
         const mark1Data = [];
 
         data.data.mark1.forEach((ele) => {
           mark1Data.push({
-            id : ele.id,
-            user_id : ele.user_id,
-            tag_name : ele.tag_name,
-            title : ele.title
+            id: ele.id,
+            user_id: ele.user_id,
+            tag_name: ele.tag_name,
+            title: ele.title,
           });
         });
 
         setTag([...mark1Data]);
-
-
       })
-      .catch(err => console.log(err))
+      .catch((err) => console.log(err))
       .finally(() => console.log("axios GET finish"));
 
     // console.log('axios 부르기---------------->');
@@ -58,7 +59,6 @@ const Home = () => {
     //   .catch(err => console.log(err))
     //   .finally(() => console.log("axios GET finish"));
 
-    
     // dataTag_sample,dataFollower_sample은 테스트를 위한 더미데이터임, axios사용시 주석 or 제거해야함
     // let dataTag_sample = [
     //   {
@@ -88,15 +88,13 @@ const Home = () => {
     //   },
     // ];
 
-    
     let dataFollower_sample = [
-      {userId : 'aaa', Like : 1},
-      {userId : 'bbb', Like : 2},
-      {userId : 'ccc', Like : 3},
-      {userId : 'ddd', Like : 4}
+      { userId: "aaa", Like: 1 },
+      { userId: "bbb", Like: 2 },
+      { userId: "ccc", Like: 3 },
+      { userId: "ddd", Like: 4 },
     ];
-    setFollower([...dataFollower_sample])
-
+    setFollower([...dataFollower_sample]);
   }, []);
 
   const [isRight, setIsRight] = useState(false);
@@ -104,7 +102,6 @@ const Home = () => {
   const toggle = () => {
     setIsRight(!isRight);
   };
-    
 
   return (
     <>
@@ -113,8 +110,8 @@ const Home = () => {
         <Route path="/main">
           <Navbar toggle={toggle} />
           <Cover />
-          <ChallengeList dataTag={dataTag}/>
-          <ChallengerList dataFollower={dataFollower}/>
+          <ChallengeList dataTag={dataTag} />
+          <ChallengerList dataFollower={dataFollower} />
           <Footer />
         </Route>
       </Switch>
@@ -122,8 +119,6 @@ const Home = () => {
   );
 };
 
-
 export default Home;
 
-
-// 
+//
