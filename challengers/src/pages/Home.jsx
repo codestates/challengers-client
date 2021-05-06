@@ -103,8 +103,7 @@ const Home = () => {
 
   const toggle = () => {
     setIsRight(!isRight);
-  };>>>>>>> dev
-61
+  };
     
 
   return (
