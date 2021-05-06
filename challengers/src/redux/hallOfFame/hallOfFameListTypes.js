@@ -1,2 +1,0 @@
-// 보류중
-export const CALL_HALL_OF_FAME_LIST = 'CALL_HALL_OF_FAME_LIST';
