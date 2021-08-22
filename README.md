@@ -2,6 +2,29 @@
 
 ## 프로젝트명 : challengers
 ## 팀 명 : CoDeMon
+## 멤버명단
+<table>
+  <tr>
+    <th>이름</th>
+    <th>포지션</th>
+  </tr>
+  <tr>
+    <td>최재호(팀장)</td>
+    <td>Back-end -> Front-end</td>
+  </tr>
+  <tr>
+    <td>박종혁</td>
+    <td>Back-end</td>
+  </tr>
+   <tr>
+    <td>이성재</td>
+    <td>Front-end</td>
+  </tr>
+   <tr>
+    <td>연호진</td>
+    <td>Front-end</td>
+  </tr>
+</table>
 
 #### 프로젝트 내용
 - 사용자가 자신의 도전(challenge)을 사람들과 공유하고 함께하는 서비스
