@@ -16,3 +16,6 @@
 |박종혁|팀원|Backend|
 |이성재|팀원|Frontend|
 |연호진|팀원|Frontend|
+
+## 빌드 및 실행방법
+challengers 폴더에 들어가 `npm install` 한뒤 `npm run start` 한다.
